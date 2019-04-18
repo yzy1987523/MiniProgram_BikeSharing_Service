@@ -13,10 +13,10 @@ public class User {
 	}
 	public void setId(String id) {
 		this.id = id;
-	}
+	}	
 	public String getPhoneNum() {
 		return phoneNum;
-	}
+	} 
 	public void setPhoneNum(String phoneNum) {
 		this.phoneNum = phoneNum;
 	}
@@ -44,13 +44,28 @@ public class User {
 	public void setIdNum(String idNum) {
 		this.idNum = idNum;
 	}
+	public Double getDeposit() {
+		return deposit;
+	}
+	public void setDeposit(Double deposit) {
+		this.deposit = deposit;
+	}
+	
 	@Id
 	private String id;
 	@Indexed
 	private String phoneNum;
+	private Double deposit;
 	private Date regDate;
 	private String nickName;
 	private String name;
 	private String idNum;
+	private Integer status;
+	public Integer getStatus() {
+		return status;
+	}
+	public void setStatus(Integer status) {
+		this.status = status;
+	}
 
 }

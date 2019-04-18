@@ -1,5 +1,7 @@
 package com.example.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -15,7 +17,7 @@ public class BikeController {
 	@Autowired
 	private BikeService bikeService;
 	
-	@RequestMapping("/bike/add")//当客户端发出/hello的请求时就会映射到该方法
+	@RequestMapping("/bike/add")//当客户端发出/bike/add的请求时就会映射到该方法
 	@ResponseBody//该方法返回json数据
 	public String add(@RequestBody Bike bike) {//由于wx请求时的参数是json类型，所以要注明参数为json类型
 //		System.out.println(bike);
@@ -23,5 +25,11 @@ public class BikeController {
 		//调用service
 		bikeService.save(bike);
 		return "success";
+	}
+	@RequestMapping("/bike/findNear")
+	@ResponseBody//该方法返回json数据
+	public List<Bike> findNear(double longitude,double latitude) {
+		List<Bike> bikes =bikeService.findNear(longitude,latitude);
+		return bikes;
 	}
 }

@@ -41,4 +41,31 @@ public class UserController {//控制层主要接受用户请求并响应，业�
 		}
 		return flag; 
 	}
+	@RequestMapping("/user/deposit")
+	@ResponseBody
+	public boolean deposit(@RequestBody User user) {
+		boolean flag=true;
+		try {
+			userService.update(user);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			flag=false;
+		}
+		return flag; 
+	}
+	@RequestMapping("/user/identify")
+	@ResponseBody
+	public boolean identify(@RequestBody User user) {
+		boolean flag=true;
+		try {
+			userService.update(user);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			flag=false;
+		}
+		return flag; 
+	}
+	
 }
